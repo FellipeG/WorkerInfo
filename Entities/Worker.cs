@@ -32,11 +32,11 @@ namespace WorkerInfo.Entities
 
         public double Income(int year, int month)
         {
-            List<HourContract> contratos = HourContract.FindAll(contract => contract.Date.Month == month && contract.Date.Year == year);
+            List<HourContract> contracts = HourContract.FindAll(contract => contract.Date.Month == month && contract.Date.Year == year);
             double totalIncome = BaseSalary;
-            foreach(HourContract contrato in contratos)
+            foreach(HourContract contract in contracts)
             {
-                totalIncome += contrato.TotalValue();
+                totalIncome += contract.TotalValue();
             }
 
             return totalIncome;
